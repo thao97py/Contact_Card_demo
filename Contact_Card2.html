@@ -1,47 +1,73 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("button").click(function(){
-				//Extract values from input fields
-				var first = $("#first").val();
-				var last = $("#last").val();
-				var desc = $("textarea").val();
-				//Append dynamically created div to DOM
-				$("#right").append("<div id = 'card'><p>" + first + " " + last+"</p><p id = 'back'> " + desc +"</p></div>");
-				//Clear form fields by setting their value to empty
-				$("#first").val("");
-				$("#last").val("");
-				$("#desc").val("");
-				return false;
-			});
-			
-			$(document).on('click', '#card', function(){
-				//Toggle the #cards' childrens' display property
-				$(this).children().toggle();
-			});
-		});
-	</script>
-	<title>Contact Card</title>
+    <script type="text/javascript">
+        function random_color(){
+            var color ='#';
+            element =['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
+            for (var i=0; i<6;i++){
+                var rgb = Math.floor(Math.random()*16);
+                color += element[rgb];
+            }
+            
+                return color;
+        };
+
+        $(document).ready(function(){
+            $('form').submit(function(){
+                //Extract values from input fields
+                var first = $('input[name="first_name"]').val();
+                var last = $('input[name="last_name"]').val();
+                var description = $('textarea').val();
+                var x = random_color();
+                console.log(x);
+                //Append dynamically created div to DOM
+                $('.detail').append("<div id='bhh'><h2>"+first+ " " + last + '</h2><h2 id="back">'
+                                                        + description+'</h2><p>Click for description!</p></div>');
+                                                       
+                
+                $('#bhh').css({'border-color': random_color()});
+                
+                //Clear form fields by setting their value to empty
+                $('input[name="first_name"]').val("");
+                $('input[name="last_name"]').val("");
+                $('textarea').val("");
+
+                //Toggle the #cards' childrens' display property
+                return false;
+            });
+                $(document).on("click","#bhh",function(){
+                    //Toggle the #cards' childrens' display property
+                    $(this).children().toggle();
+                });
+            });     
+    </script>
+
 </head>
 <body>
-	<div id = "wrapper">
-		<div id ="left">
-			<form>
-				<label for="first">First Name:</label>
-				<input type ="text" name="first" id ="first">
-				<label for="last">Last Name:</label>
-				<input type ="text" name="last" id ="last">
-				<label for="desc">Description:</label>
-				<textarea id="desc"></textarea>
-				<button>Add User</button>
-			</form>
-		</div>
-		<div id ="right">
-		</div>
-	</div>
+    <div class="wrapper">
+        <h1>Create New Contact Card</h1>
+        <div class="creating">
+            <form action="process.php" method="post">
+                <label for="first_name">First Name:</label>
+                <input id="first_name" type="text" placeholder="First name..." name="first_name" >
+                <label for="last_name">Last Name:</label>
+                <input id="last_name" type="text" placeholder="Last name..." name="last_name" >
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                <input id="submit" type="submit" value="Add User">
+            </form>
+        </div>
 
+        <div class="detail">
+
+        </div>
+    </div>
 </body>
 </html>

@@ -1,21 +1,60 @@
+
+*{
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+.detail{
+    width:20%;
+    height:10%;
+    display: inline-block;
+    vertical-align: top;
+    margin:5%;
+    padding:3%;
+    height: 10%;
+    border-radius: 12px;
+
+}
+.creating{
+    display: inline-block;
+    width:40%;
+    margin:3%;
+}
+h1{
+    text-align: center;
+    border-bottom:3px solid rgb(223, 216, 216);
+    padding:1% 0%;
+}
+form{
+    display: inline-block;
+    width: initial;
+    
+}
+label{
+    width:20%;
+    display: inline-block;
+}
+input{
+    width:70%;
+    display: inline-block;
+    margin:2% 0%;
+}
+
+textarea{
+    width:90%;
+    font: 15px bold;
+}
+#submit{
+    width:30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 #back{
-	display: none;
+    display: none;
 }
-input, textarea{
-	display: block;
-}
-
-#left, #right{
-	display: inline-block;
-	vertical-align: top;
-	margin: 20px;
-}
-
-#card{
-	width: 150px;
-	height: 75px;
-	text-align: center;
-	border: 1px solid black;
-	border-radius: 5px;
-	margin: 5px 0;
+#bhh{
+    border:5px solid pink;
+    margin:10px;
+    border-radius:12px;
+    text-align:center;
+    height:70px;
 }
